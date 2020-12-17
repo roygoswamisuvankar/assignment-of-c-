@@ -13,13 +13,13 @@ class date{
             date d;
 
             if(yy%4==0 && yy%100 !=0 || yy%400==0){
-                if((dd>=1 && dd<=31) && (dd>=1 && dd<=12)){
+                /*if((dd>=1 && dd<=31)){
                     d.dd = ++dd;
                     d.mm = mm;
                     d.yy = yy;
                     return d;
                 }
-                else if((dd==29) && (mm==2)){
+                else */if((dd==29) && (mm==2)){
                     d.dd = 1;
                     d.mm = ++mm;
                     d.yy = yy;
@@ -43,15 +43,21 @@ class date{
                     d.yy = yy;
                     return d;
                 }
-                return d;
-            }else{
-                if((dd>=1 && dd<=31) && (dd>=1 && dd<=12)){
+                else if((dd>=1 && dd<=31)){
                     d.dd = ++dd;
                     d.mm = mm;
                     d.yy = yy;
                     return d;
                 }
-                else if((dd==28) && (mm==2)){
+                return d;
+            }else{
+                /*if((dd>=1 && dd<=30)){
+                    d.dd = ++dd;
+                    d.mm = mm;
+                    d.yy = yy;
+                    return d;
+                }*/
+                /*else*/ if((dd==28) && (mm==2)){
                     d.dd = 1;
                     d.mm=++mm;
                     d.yy = yy;
@@ -81,13 +87,19 @@ class date{
                     d.yy = yy;
                     return d;
                 }
+                else if((dd>=1 && dd<=30)){
+                    d.dd = ++dd;
+                    d.mm = mm;
+                    d.yy = yy;
+                    return d;
+                }
             }
         }
         void show(){
-            if(mm>=1 && mm<=12 &&(dd>=1 && dd<=30 || dd<=31)){
+            if((mm>=1 && mm<=12) &&(dd>=1 && dd<=30 || dd<=31)){
                 cout<<dd<<" : "<<mm<<" : "<<yy<<endl;
             }else{
-                cout<<"**Invald Date/Months you have entered(day must be 1 to 30 or 31 and months must be 1 to 12)**"<<endl;
+               cout<<"**Invald Date/Months you have entered(day must be 1 to 30 or 31 and months must be 1 to 12)**"<<endl;
             }
         }
 };
